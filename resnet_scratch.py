@@ -2,6 +2,8 @@ import keras
 from keras import Model
 from keras.layers import Conv2D, Dense, Flatten, MaxPool2D, BatchNormalization, Activation, Input, Add
 
+import tensorflow as tf
+x = tf.random.uniform((224,224,3))
 
 def ResNet(input_shape):
     x_input = Input(input_shape)
@@ -23,21 +25,3 @@ def ResNet(input_shape):
     x = Activation("relu")(x)
     return Model(x_input, x, "resnet")
         
-     
-import numpy as np
-import pandas as pd
-from sklearn.model_selection import train_test_split
-X = np.array([1,2,3,4,5,6,7,8,9,10])
-y = X**2
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
-
-
-
-
-
-    
-model = keras.Sequential()
-model.add(Dense(10))
-model.compile(optimizer="sgd", 
-              loss="mse")
